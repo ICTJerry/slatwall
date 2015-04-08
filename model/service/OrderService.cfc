@@ -1243,12 +1243,23 @@ component extends="HibachiService" persistent="false" accessors="true" output="f
 	}
 	
 	public any function processOrder_removeOrderItem(required any order, required struct data) {
-		
-		// Make sure that an orderItemID was passed in
-		if(structKeyExists(arguments.data, "orderItemID")) {
-			
-			// Loop over all of the items in this order
-			for(var orderItem in arguments.order.getOrderItems())	{
+		//Check if an orderItemID List was passed in. If it was, it splits the list at commas, and iterates it, calling
+		//the remove helper for each.
+		if(structKeyExists(arguments.data, "orderItemIDList")){
+			// Iterate over the ID List calling remove on each one.
+			var arrayOfIDs = ListToArray(arguments.data.orderItemIDList);
+			for (var orderItemID in arrayOfIDs){
+				var currentData = {orderItemID = orderItemID};
+				this.processOrder_removeOrderItemHelper(arguments.order, currentData);
+			} 
+		}else if(structKeyExists(arguments.data, "orderItemID")) {
+			// Loop over all of the items in this order removing the one with the passed ID.
+			this.processOrder_removeOrderItemHelper(arguments.order, arguments.data);
+		}
+		return arguments.order;
+	}
+	public any function processOrder_removeOrderItemHelper(required any order, required struct data){
+		for(var orderItem in arguments.order.getOrderItems())	{
 			
 				// Check to see if this item is the same ID as the one passed in to remove
 				if(orderItem.getOrderItemID() == arguments.data.orderItemID) {
@@ -1290,12 +1301,7 @@ component extends="HibachiService" persistent="false" accessors="true" output="f
 					break;
 				}
 			}
-			
-		}
-		
-		return arguments.order;
 	}
-	
 	public any function processOrder_removeOrderPayment(required any order, required struct data) {
 		// Make sure that an orderItemID was passed in
 		if(structKeyExists(arguments.data, "orderPaymentID")) {
