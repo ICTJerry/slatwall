@@ -1,4 +1,5 @@
 "use strict";
+"use strict";
 angular.module('slatwalladmin').directive('swConfirm', ['$slatwall', '$log', '$compile', '$modal', function($slatwall, $log, $compile, $modal) {
   var confirmationModalController = function($scope, $modalInstance) {
     $scope.deleteEntity = function(entity) {
@@ -69,6 +70,8 @@ angular.module('slatwalladmin').directive('swConfirm', ['$slatwall', '$log', '$c
         var messageText = attr.messageText || "define.delete_message";
         var callback = attr.callback || "onSuccess()";
         var templateString = buildConfirmationModal(simple, useRbKey, confirmText, messageText, noText, yesText, callback);
+        $log.debug(templateString);
+        $log.debug("~~~~~~~~~~~~~");
         var modalInstance = $modal.open({
           template: templateString,
           controller: confirmationModalController
