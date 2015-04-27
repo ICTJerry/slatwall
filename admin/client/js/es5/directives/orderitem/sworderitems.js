@@ -20,7 +20,7 @@ angular.module("slatwalladmin").directive("swOrderItems", ["$log", "$timeout", "
 			scope.keywords = "";
 			scope.loadingCollection = false;
 			var searchPromise;
-			scope.searchCollection = function ($timout) {
+			scope.searchCollection = function () {
 				if (searchPromise) {
 					$timeout.cancel(searchPromise);
 				}
@@ -49,10 +49,10 @@ angular.module("slatwalladmin").directive("swOrderItems", ["$log", "$timeout", "
 					isExportable: true,
 					propertyIdentifier: "_orderitem.orderItemID",
 					ormtype: "id",
-					isVisible: true,
+					isVisible: false,
 
 					title: "Order Item ID",
-					isSearchable: true
+					isSearchable: false
 				}, {
 					title: "Order Item Type",
 					propertyIdentifier: "_orderitem.orderItemType",
@@ -88,7 +88,11 @@ angular.module("slatwalladmin").directive("swOrderItems", ["$log", "$timeout", "
 					isVisible: true }, {
 					title: "Product Name",
 					propertyIdentifier: "_orderitem.sku.product.productName",
-					isVisible: true }, {
+					isVisible: true,
+					ormtype: "string",
+					isSearchable: true
+
+				}, {
 					title: "Product Type",
 					propertyIdentifier: "_orderitem.sku.product.productType",
 					isVisible: true
@@ -174,13 +178,14 @@ angular.module("slatwalladmin").directive("swOrderItems", ["$log", "$timeout", "
 					title: "Country",
 					propertyIdentifier: "_orderitem.orderFulfillment.shippingAddress.countryCode",
 					isVisible: true,
+					isSearchable: false
 
-					ormtype: "string",
-					isSearchable: true
 				}, {
 					title: "Image File Name",
 					propertyIdentifier: "_orderitem.sku.imageFile",
-					isVisible: true }, {
+					isVisible: true
+
+				}, {
 					title: "Total",
 					propertyIdentifier: "_orderitem.itemTotal",
 					persistent: false

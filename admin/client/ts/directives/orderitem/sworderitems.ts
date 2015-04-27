@@ -37,7 +37,7 @@ angular.module('slatwalladmin')
 				scope.keywords = "";
 				scope.loadingCollection = false;
 				var searchPromise;
-				scope.searchCollection = function($timout){
+				scope.searchCollection = function(){
 					if(searchPromise) {
 						$timeout.cancel(searchPromise);
 					}
@@ -67,15 +67,16 @@ angular.module('slatwalladmin')
 					   "isExportable":true,
 					   "propertyIdentifier":"_orderitem.orderItemID",
 					   "ormtype":"id",
-					   "isVisible":true,
+					   "isVisible":false,
 					  
 					   "title":"Order Item ID",
-					    "isSearchable":true
+					    "isSearchable":false
 					},
 					{
 					   "title":"Order Item Type",
 					   "propertyIdentifier":"_orderitem.orderItemType",
 					   "isVisible":true,
+                       
 					   
 					   
 					},
@@ -129,6 +130,8 @@ angular.module('slatwalladmin')
 					   "title":"Product Name",
 					   "propertyIdentifier":"_orderitem.sku.product.productName",
 					   "isVisible":true,
+                       "ormtype":"string",
+                        "isSearchable":true
 					   
 					},
 					{
@@ -253,14 +256,13 @@ angular.module('slatwalladmin')
 					   "title":"Country",
 					   "propertyIdentifier":"_orderitem.orderFulfillment.shippingAddress.countryCode",
 					   "isVisible":true,
+					   "isSearchable":false
 					   
-					   "ormtype":"string",
-					    "isSearchable":true
 					},
 					{
 					   "title":"Image File Name",
 					   "propertyIdentifier":"_orderitem.sku.imageFile",
-					   "isVisible":true,
+					   "isVisible":true
 					   
 					},
 					{
