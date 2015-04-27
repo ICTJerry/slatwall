@@ -1591,6 +1591,7 @@ tabel .s-table-header {
 .s-filter-group-style + .btn-group-vertical {
   margin-right: 19px !important;
 }
+/*Checkbox*/
 .s-checkbox {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -1661,6 +1662,7 @@ tabel .s-table-header {
   background-color: #f2f2f2;
   cursor: not-allowed;
 }
+/*Radio Buttons*/
 .radio {
   margin-top: 0px;
   margin-bottom: 5px;
@@ -1775,6 +1777,71 @@ tabel .s-table-header {
 }
 .radio-success input[type=radio]:checked + label:after {
   background-color: #5cb85c;
+}
+/*Toggle switch*/
+.s-toggle {
+  position: relative;
+  width: 80px;
+  height: 20px;
+  border-radius: 100px;
+  background-color: #aaa;
+  overflow: hidden;
+}
+.s-toggle .s-check {
+  position: absolute;
+  display: block;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 6;
+}
+.s-toggle .s-check:checked ~ .s-track {
+  box-shadow: inset 0 0 0 20px #428BCA;
+}
+.s-toggle .s-check:checked ~ .s-switch {
+  right: 2px;
+  left: 38px;
+  transition: 0.35s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  transition-property: left, right;
+  transition-delay: .05s, 0s;
+}
+.s-toggle .s-switch {
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  bottom: 2px;
+  right: 27px;
+  background-color: #fff;
+  border-radius: 36px;
+  z-index: 1;
+  transition: 0.35s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  transition-property: left, right;
+  transition-delay: 0s, .05s;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  max-width: 50%;
+}
+.s-toggle .s-track {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.35s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  border-radius: 40px;
+  padding-top: 1px;
+}
+.s-toggle .s-track .s-true,
+.s-toggle .s-track .s-false {
+  color: #FFF;
+  font-size: 10px;
+  font-weight: normal;
+  display: inline-block;
+  text-align: center;
+  margin-top: 2px;
+  padding: 0px;
 }
 .s-filter-table-box tr td:first-child {
   width: 46px;
