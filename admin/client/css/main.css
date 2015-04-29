@@ -1797,6 +1797,7 @@ tabel .s-table-header {
   height: 100%;
   opacity: 0;
   z-index: 6;
+  margin-top: 0px;
 }
 .s-toggle .s-check:checked ~ .s-track {
   box-shadow: inset 0 0 0 20px #428BCA;
@@ -1833,8 +1834,8 @@ tabel .s-table-header {
   border-radius: 40px;
   padding-top: 1px;
 }
-.s-toggle .s-track .s-true,
-.s-toggle .s-track .s-false {
+.s-toggle .s-track .s-checked,
+.s-toggle .s-track .s-unchecked {
   color: #FFF;
   font-size: 10px;
   font-weight: normal;

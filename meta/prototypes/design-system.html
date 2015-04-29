@@ -275,28 +275,51 @@
 							        </div>
 									
 									<div class="form-group">
-							            <label for="file">Yes No Toggle:</label>
+							            <label for="file">Yes/No Toggle:</label>
 										<div class="s-toggle">
 											<input type="checkbox" class="s-check">
 											<b class="s-switch"></b>
 											<b class="s-track">
-												<span class="s-true col-xs-6">Yes</span>
-												<span class="s-false col-xs-6">No</span>
+												<span class="s-checked col-xs-6">Yes</span>
+												<span class="s-unchecked col-xs-6">No</span>
 											</b>
 										</div>
 							        </div>
 									
 									<div class="form-group">
-							            <label for="file">True False Toggle:</label>
+							            <label for="file">True/False Toggle:</label>
 										<div class="s-toggle">
 											<input type="checkbox" class="s-check">
 											<b class="s-switch"></b>
 											<b class="s-track">
-												<span class="s-true col-xs-6">True</span>
-												<span class="s-false col-xs-6">False</span>
+												<span class="s-checked col-xs-6">True</span>
+												<span class="s-unchecked col-xs-6">False</span>
 											</b>
 										</div>
 							        </div>
+									
+									<div class="form-group">
+							            <label for="file">On/Off Toggle:</label>
+										<div class="s-toggle">
+											<input type="checkbox" class="s-check">
+											<b class="s-switch"></b>
+											<b class="s-track">
+												<span class="s-checked col-xs-6">On</span>
+												<span class="s-unchecked col-xs-6">Off</span>
+											</b>
+										</div>
+							        </div>
+									
+									
+									<script>
+										$('.s-toggle .s-check').change(function(){
+											if( $(this).is(':checked') ){
+												console.log('checked');
+											}else{
+												console.log('not checked');
+											};
+										});
+									</script>
 								
 								</div>
 				

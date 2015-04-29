@@ -1,0 +1,12 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# # On branch hotfix-rj-toggle-css
+# # Changes to be committed:
+# ##
+# #	modified:   admin/client/css/main.css
+# #	modified:   admin/client/css/main.less
+# #	modified:   meta/prototypes/design-system.html
+# #	modified:   org/Hibachi/HibachiTags/HibachiEntityDetailGroup.cfm
+# #
